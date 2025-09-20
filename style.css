@@ -33,17 +33,25 @@ body.light-theme {
 
 /* Header Styles */
 .main-header {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
+    z-index: 1000;
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 50px;
-    background-color: transparent;
+    background-color: var(--dark-bg);
     border-radius: 50px;
     box-shadow: 0 0 20px var(--accent-glow);
     margin: 20px;
-    position: relative;
     border: 1px solid var(--accent-glow);
     overflow: hidden;
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
 /* Mouse Follower Effect */
@@ -135,6 +143,8 @@ body.light-theme {
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    /* هذا الهامش يمنع المحتوى من الاختباء تحت الهيدر الثابت */
+    margin-top: 140px; 
 }
 
 .hero-section {
@@ -340,6 +350,7 @@ body.light-theme {
 
 /* Light Theme Specific Styles */
 body.light-theme .main-header {
+    background-color: var(--dark-bg);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border: 1px solid #ccc;
 }
