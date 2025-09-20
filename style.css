@@ -1,0 +1,401 @@
+:root {
+    --dark-bg: #111827;
+    --darker-bg: #1d2634;
+    --light-text: #e5e7eb;
+    --accent-color-blue: #007bff;
+    --accent-color-orange: #ff9900;
+    --accent-glow: rgba(0, 150, 255, 0.4);
+    --orange-glow: rgba(255, 153, 0, 0.4);
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    font-family: 'Cairo', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    direction: rtl;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Light Theme Colors */
+body.light-theme {
+    --dark-bg: #f9fafa;
+    --darker-bg: #e2e8f0;
+    --light-text: #1a202c;
+    --accent-color-blue: #007bff;
+    --accent-color-orange: #ff9900;
+    --accent-glow: rgba(0, 123, 255, 0.2);
+    --orange-glow: rgba(255, 153, 0, 0.2);
+    color: var(--light-text);
+}
+
+/* Header Styles */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: transparent;
+    border-radius: 50px;
+    box-shadow: 0 0 20px var(--accent-glow);
+    margin: 20px;
+    position: relative;
+    border: 1px solid var(--accent-glow);
+    overflow: hidden;
+}
+
+/* Mouse Follower Effect */
+.mouse-follower {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    border-radius: 50%;
+}
+
+.main-header:hover .mouse-follower {
+    opacity: 1;
+}
+
+.header-left-icons, .header-right-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icon-btn {
+    background: transparent;
+    border: none;
+    color: var(--light-text);
+    padding: 8px 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.icon-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav a {
+    color: var(--light-text);
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 5px 10px;
+    position: relative;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--accent-color-blue);
+    background-color: transparent;
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    right: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(to right, #007bff, #00c6ff);
+    transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+    width: 100%;
+}
+
+.header-right-logo span {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--light-text);
+}
+
+/* Main Content Styles */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+    min-height: 80vh;
+}
+
+.text-content h1 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.name {
+    font-size: 4rem;
+    font-weight: 700;
+    background: linear-gradient(to right, var(--accent-color-blue), #00c6ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 15px var(--accent-glow);
+    display: inline-block;
+    margin: 10px 0;
+}
+
+.description {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #9ca3af;
+}
+
+.image-content img {
+    max-width: 100%;
+    height: auto;
+    width: 300px;
+}
+
+/* About Me Section Styles */
+.about-me-section {
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: 40px auto;
+    text-align: center;
+}
+.about-me-section h2 {
+    font-size: 2.5rem;
+    color: var(--light-text);
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 10px;
+}
+.about-me-section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 80px;
+    height: 4px;
+    background-color: var(--accent-color-blue);
+    border-radius: 2px;
+}
+.about-me-section .about-me-content {
+    background-color: var(--darker-bg);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.3);
+    border: 2px solid var(--accent-color-blue);
+    text-align: right;
+    line-height: 1.6;
+}
+
+/* Contact Section Styles */
+.contact-section {
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 2.5rem;
+    color: var(--light-text);
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.contact-section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 80px;
+    height: 4px;
+    background-color: var(--accent-color-blue);
+    border-radius: 2px;
+}
+
+.social-accounts-grid {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 50px;
+    justify-content: center;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.account-card {
+    min-width: 300px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    background-color: var(--darker-bg);
+    border-radius: 15px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+.account-card:hover {
+    transform: translateY(-5px);
+}
+
+.account-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.account-card h3 {
+    font-size: 1.8rem;
+    margin: 0;
+    color: var(--light-text);
+}
+
+.account-card p {
+    font-size: 1rem;
+    color: #9ca3af;
+    margin: 0;
+}
+
+/* Specific card styles for colors */
+.primary-card {
+    box-shadow: 0 0 20px rgba(255, 153, 0, 0.3);
+    border-color: var(--accent-color-orange);
+}
+.primary-card img {
+    border-color: var(--accent-color-orange);
+}
+
+.secondary-card {
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.3);
+    border-color: var(--accent-color-blue);
+}
+.secondary-card img {
+    border-color: var(--accent-color-blue);
+}
+
+.other-social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.social-icon-btn {
+    background-color: var(--darker-bg);
+    border: 1px solid var(--light-text);
+    color: var(--light-text);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.social-icon-btn:hover {
+    background-color: var(--accent-color-blue);
+    color: white;
+    border-color: var(--accent-color-blue);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+}
+
+
+/* Light Theme Specific Styles */
+body.light-theme .main-header {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+}
+body.light-theme .mouse-follower {
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+}
+body.light-theme .main-nav a.active {
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+body.light-theme .social-icon-btn,
+body.light-theme .account-card {
+    border-color: #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+body.light-theme .social-icon-btn:hover {
+    background-color: var(--accent-color-blue);
+    color: white;
+}
+
+/* Media Queries for Responsiveness */
+@media (min-width: 768px) {
+    .hero-section {
+        flex-direction: row;
+        text-align: left;
+        gap: 80px;
+    }
+    .text-content {
+        order: 1;
+    }
+    .image-content {
+        order: 2;
+    }
+}
+
+@media (max-width: 767px) {
+    .main-header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .contact-section h2 {
+        font-size: 1.8rem;
+    }
+    .other-social-links {
+        gap: 15px;
+    }
+    .social-icon-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+}
